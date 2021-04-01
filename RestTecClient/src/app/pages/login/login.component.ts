@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api/api.service'
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  respuesta: string[]=[];
+
+  constructor(private apiService: ApiService) { 
+    this.apiService.getAlgo();
+  }
 
   ngOnInit(): void {
+  }
+
+  async getAlgoComp(){
+    //this.respuesta = await this.
   }
 
 }

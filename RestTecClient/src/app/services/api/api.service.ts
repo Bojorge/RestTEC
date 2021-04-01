@@ -7,11 +7,22 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-
-
-  url:string="https://localhost:4200/";
+  
+  private options = {
+    headers : {
+      'Content-Type' : 'application/json'
+    }
+  };
 
   constructor(private http:HttpClient) {
+   }
+
+   getAlgo(){
+     
+
+     this.http.get('https://localhost:44301/api/login').subscribe(resp => {
+       console.log(resp)
+     });
    }
 
 
