@@ -18,8 +18,7 @@ export class ApiService {
    }
 
    getAlgo(){
-     
-
+    
      this.http.get('https://localhost:44301/api/login').subscribe(resp => {
        console.log(resp)
      });
