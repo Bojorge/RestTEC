@@ -1,1 +1,11 @@
-<p>Basic mat-select</p>
+<h1>Pedidos disponibles</h1>
+
+<select [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+  <option value="0">Elija un pedido</option>
+  <option *ngFor="let pedido of pedidos">
+    {{pedido}}
+  </option>
+</select>
+
+<!-- Prueba para ver la opción seleccionado -->
+<p [hidden]="opcionSeleccionado == '0'">Ha seleccionado el pedido # {{ verSeleccion }}</p>
