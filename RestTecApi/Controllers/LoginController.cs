@@ -25,13 +25,14 @@ namespace RestTecApi.Controllers
         public string Get()
         {
             User user = new User();
-
+            user.password = "12";
+            user.user = "Antonio";
             string jsonUser = System.Text.Json.JsonSerializer.Serialize(user);
 
             FileManager file = new FileManager();
             string json = file.jsonFile();
 
-            return json;
+            return jsonUser;
         }
 
         /*
