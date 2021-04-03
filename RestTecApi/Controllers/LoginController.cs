@@ -13,6 +13,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using RestTecApi.Models;
 using RestTecApi.FileAdmin;
+using Newtonsoft.Json.Linq;
 
 namespace RestTecApi.Controllers
 {
@@ -24,17 +25,33 @@ namespace RestTecApi.Controllers
         [HttpGet]
         public string Get()
         {
-            User user = new User();
-            user.password = "12";
-            user.user = "Antonio";
-            string jsonUser = System.Text.Json.JsonSerializer.Serialize(user);
-
             FileManager file = new FileManager();
-            string json = file.jsonFile();
 
-            return jsonUser;
+            return file.compare();
         }
+        /*
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+            
+        }
+        */
+        [HttpPost]
+        public string Validate(User user)
+        {
+            
 
+            if (user.user == "" && user.password == "")
+            {
+
+            }
+            else
+            {
+
+            }
+            string url = "";
+            return "";
+        }
         /*
         [HttpGet]
         public string ValidateUser()

@@ -1,0 +1,30 @@
+{
+  "dishes": [
+    {
+      "name": "quiche_lorraine",
+      "ingredients": [
+        "huevos",
+        "pastaquebrada",
+        "tocineta",
+        "cremadulce",
+        "sal",
+        "pimientanegra",
+        "nuezmoscada",
+        "cebollapicada"
+      ]
+
+    },
+    {
+      "name": "salmon",
+      "ingredients": [
+        "lomosalmon",
+        "mayonesa",
+        "clarahuevo",
+        "dienteajo",
+        "limon",
+        "sal"
+      ]
+
+    }
+  ]
+}

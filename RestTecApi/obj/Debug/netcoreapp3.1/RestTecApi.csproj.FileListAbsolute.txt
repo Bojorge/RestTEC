@@ -21,3 +21,4 @@ C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\obj\Debug\net
 C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\obj\Debug\netcoreapp3.1\RestTecApi.csproj.CopyComplete
 C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\bin\Debug\netcoreapp3.1\JSON\users.json
+C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\bin\Debug\netcoreapp3.1\JSON\dishes.json
