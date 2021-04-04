@@ -44,41 +44,49 @@ namespace RestTecApi.FileAdmin
             }
             */
             JsonTextReader reader = new JsonTextReader(new StringReader(json));
-            string total = "";
-            string token = "";
-            string valor = "";
+            string valorstring = "";
             string objeto = "123";
             string condicion = "";
+            string valor = "";
 
             while (reader.Read())
             {
-                for (int i = 0; i < 100; i++)
+                if (reader.Value != null)
                 {
-                    if (reader.Value != null)
-                    {
-                        //Console.WriteLine("Token: {0}, Valor: {1}", reader.TokenType, reader.Value);
-                        valor = JsonConvert.SerializeObject(reader.Value);
-                        //token = JsonConvert.SerializeObject(reader.TokenType);
+                    //Console.WriteLine("Token: {0}, Valor: {1}", reader.TokenType, reader.Value);
 
-                        if (valor == objeto)
+                    valorstring = JsonConvert.SerializeObject(reader.Value);
+                    //token = JsonConvert.SerializeObject(reader.TokenType);
+
+                    for(int i=0; i<valorstring.Length; i++)
+                    {
+                        if( valorstring[i]!= '\"')
                         {
-                            condicion = "usuario aceptado";
+                            valor += valorstring[i];
                         }
-                        else
-                        {
-                            condicion = "registrese";
-                        }
+                    }
+                    if (valor == objeto)
+                    {
+                        condicion = "usuario aceptado";
+                        return condicion;
                     }
                     else
                     {
-                        Console.WriteLine("Token: {0}", reader.TokenType);
+                        condicion = "registrese";
+                        return condicion;
                     }
-                   // objeto = token + ": " + valor;
                 }
-                total += valor;
+
+                /*
+                else
+                {
+                    //Console.WriteLine("Token: {0}", reader.TokenType);
+                }      
+                */
+                valor = "";
             }
 
-            return total;
+            return "error";
         }
     }
 
