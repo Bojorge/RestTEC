@@ -12,14 +12,22 @@ export class LoginComponent implements OnInit {
   respuesta: string[]=[];
 
   constructor(private apiService: ApiService, private router: Router) { 
-    this.apiService.getAlgo();
+    //this.apiService.registeredusers();
   }
 
   ngOnInit(): void {
   }
 
-  async getAlgoComp(){
-    //this.respuesta = await this.
+  public confirmuser(user: string){
+    //this.apiService.validateuser(user);
+    if(user==""){
+      console.log("ingrese el usuario");
+    }
+    else{
+      this.apiService.registeredusers();
+      this.assigned();
+    }
+    
   }
 
   public assigned(){

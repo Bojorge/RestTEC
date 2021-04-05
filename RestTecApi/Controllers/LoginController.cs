@@ -21,13 +21,12 @@ namespace RestTecApi.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        
+        FileManager file = new FileManager();
+
         [HttpGet]
         public string Get()
         {
-            FileManager file = new FileManager();
-
-            return file.compare();
+            return file.userFile();
         }
         /*
         [HttpPost]
@@ -37,20 +36,9 @@ namespace RestTecApi.Controllers
         }
         */
         [HttpPost]
-        public string Validate(User user)
+        public string Validate(string user)
         {
-            
-
-            if (user.user == "" && user.password == "")
-            {
-
-            }
-            else
-            {
-
-            }
-            string url = "";
-            return "";
+            return file.compare(user, "password");
         }
         /*
         [HttpGet]

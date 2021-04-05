@@ -14,7 +14,7 @@ namespace RestTecApi.FileAdmin
     public class FileManager
     {
 
-        public string jsonFile()
+        public string userFile()
         {
             string fileJSON = File.ReadAllText(@"C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\JSON\users.json");
 
@@ -22,30 +22,21 @@ namespace RestTecApi.FileAdmin
             return fileJSON;
         }
 
-        public string compare()
+        public string dishFile()
         {
-            /*
-            User user = new User();
-            user.password = "12";
-            user.user = "Antonio";
-            string jsonUser = System.Text.Json.JsonSerializer.Serialize(user);
-            */
+            string fileJSON = File.ReadAllText(@"C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\JSON\dishes.json");
+
+
+            return fileJSON;
+        }
+
+        public string compare(string user, string password)
+        {
             FileManager file = new FileManager();
-            string json = file.jsonFile();
+            string json = file.userFile();
 
-            /*
-            JObject o1 = JObject.Parse(File.ReadAllText(@"C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\JSON\users.json"));
-
-            // read JSON directly from a file
-            using (StreamReader file = File.OpenText(@"C:\Users\Bojorge\Documents\BasesDeDatos\RestTEC\RestTEC\RestTecApi\JSON\users.json"))
-            using (JsonTextReader reader = new JsonTextReader(file))
-            {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
-            }
-            */
             JsonTextReader reader = new JsonTextReader(new StringReader(json));
             string valorstring = "";
-            string objeto = "123";
             string condicion = "";
             string valor = "";
 
@@ -65,7 +56,7 @@ namespace RestTecApi.FileAdmin
                             valor += valorstring[i];
                         }
                     }
-                    if (valor == objeto)
+                    if (valor == user)
                     {
                         condicion = "usuario aceptado";
                         return condicion;
@@ -76,16 +67,8 @@ namespace RestTecApi.FileAdmin
                         return condicion;
                     }
                 }
-
-                /*
-                else
-                {
-                    //Console.WriteLine("Token: {0}", reader.TokenType);
-                }      
-                */
                 valor = "";
             }
-
             return "error";
         }
     }
